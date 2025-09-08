@@ -1,0 +1,316 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<library>
+    <authors>
+        <author>
+            <name>Gabriel García Márquez</name>
+            <nationality>Colombia</nationality>
+        </author>
+        <author>
+            <name>Isaac Asimov</name>
+            <nationality>Estados Unidos</nationality>
+        </author>
+        <author>
+            <name>Elena Poniatowska</name>
+            <nationality>México</nationality>
+        </author>
+        <author>
+            <name>Mario Vargas Llosa</name>
+            <nationality>Perú</nationality>
+        </author>
+        <author>
+            <name>Isabel Allende</name>
+            <nationality>Chile</nationality>
+        </author>
+        <author>
+            <name>Octavio Paz</name>
+            <nationality>México</nationality>
+        </author>
+        <author>
+            <name>Jorge Luis Borges</name>
+            <nationality>Argentina</nationality>
+        </author>
+        <author>
+            <name>Julio Cortázar</name>
+            <nationality>Argentina</nationality>
+        </author>
+        <author>
+            <name>García Lorca</name>
+            <nationality>España</nationality>
+        </author>
+        <author>
+            <name>xxt</name>
+            <nationality>colombiano</nationality>
+        </author>
+        <author>
+            <name>Miguel de Cervantes Saavedra</name>
+            <nationality>no especificada</nationality>
+        </author>
+    </authors>
+    <books>
+        <book>
+            <title>Cien años de soledad</title>
+            <isbn>978-84-376-0494-7</isbn>
+            <price>24.95</price>
+            <year>1967</year>
+            <stock>13</stock>
+            <type>Novel</type>
+            <genre>Realismo Mágico</genre>
+            <authors>
+                <author>Gabriel García Márquez</author>
+            </authors>
+            <customImagePath>C:\Users\juliy\OneDrive\Escritorio\SGI LIB\book_images\book_9788437604947.jpg</customImagePath>
+        </book>
+        <book>
+            <title>Foundation</title>
+            <isbn>978-0-553-29335-0</isbn>
+            <price>18.99</price>
+            <year>1951</year>
+            <stock>7</stock>
+            <type>Novel</type>
+            <genre>Ciencia Ficción</genre>
+            <authors>
+                <author>Isaac Asimov</author>
+            </authors>
+            <customImagePath>C:\Users\juliy\OneDrive\Escritorio\SGI LIB\book_images\book_9780553293350.jpg</customImagePath>
+        </book>
+        <book>
+            <title>La casa de los espíritus</title>
+            <isbn>978-84-204-8246-8</isbn>
+            <price>22.5</price>
+            <year>1982</year>
+            <stock>12</stock>
+            <type>Novel</type>
+            <genre>Realismo Mágico</genre>
+            <authors>
+                <author>Isabel Allende</author>
+            </authors>
+            <customImagePath>C:\Users\juliy\OneDrive\Escritorio\SGI LIB\book_images\book_9788420482468.jpg</customImagePath>
+        </book>
+        <book>
+            <title>Rayuela</title>
+            <isbn>978-84-376-0050-5</isbn>
+            <price>26.95</price>
+            <year>1963</year>
+            <stock>7</stock>
+            <type>Novel</type>
+            <genre>Literatura Experimental</genre>
+            <authors>
+                <author>Julio Cortázar</author>
+            </authors>
+            <customImagePath>C:\Users\juliy\Downloads\Rayuela_JC.png</customImagePath>
+        </book>
+        <book>
+            <title>El laberinto de la soledad</title>
+            <isbn>978-607-11-3983-4</isbn>
+            <price>19.95</price>
+            <year>1950</year>
+            <stock>10</stock>
+            <type>TextBook</type>
+            <level>Universitario</level>
+            <authors>
+                <author>Octavio Paz</author>
+            </authors>
+            <customImagePath>C:\Users\juliy\OneDrive\Escritorio\SGI LIB\book_images\book_9786071139834.jpg</customImagePath>
+        </book>
+        <book>
+            <title>Ficciones</title>
+            <isbn>978-84-376-0498-5</isbn>
+            <price>21.99</price>
+            <year>1944</year>
+            <stock>9</stock>
+            <type>Novel</type>
+            <genre>Literatura Fantástica</genre>
+            <authors>
+                <author>Jorge Luis Borges</author>
+            </authors>
+            <customImagePath>C:\Users\juliy\OneDrive\Escritorio\SGI LIB\book_images\book_9788437604985.jpg</customImagePath>
+        </book>
+        <book>
+            <title>Veinte poemas de amor y una canción desesperada</title>
+            <isbn>978-84-376-2156-2</isbn>
+            <price>16.5</price>
+            <year>1924</year>
+            <stock>20</stock>
+            <type>Novel</type>
+            <genre>Poesía</genre>
+            <authors/>
+            <customImagePath>C:\Users\juliy\OneDrive\Escritorio\SGI LIB\book_images\book_9788437621562.jpg</customImagePath>
+        </book>
+        <book>
+            <title>La ciudad y los perros</title>
+            <isbn>978-84-663-0002-4</isbn>
+            <price>23.95</price>
+            <year>1963</year>
+            <stock>5</stock>
+            <type>Novel</type>
+            <genre>Realismo</genre>
+            <authors>
+                <author>Mario Vargas Llosa</author>
+            </authors>
+        </book>
+        <book>
+            <title>Hasta no verte Jesús mío</title>
+            <isbn>978-607-11-4521-7</isbn>
+            <price>20.5</price>
+            <year>1969</year>
+            <stock>11</stock>
+            <type>Novel</type>
+            <genre>Testimonio</genre>
+            <authors>
+                <author>Elena Poniatowska</author>
+            </authors>
+        </book>
+        <book>
+            <title>Programación Avanzada en Java</title>
+            <isbn>978-84-441-8955-3</isbn>
+            <price>45.9</price>
+            <year>2020</year>
+            <stock>25</stock>
+            <type>TextBook</type>
+            <level>Universitario</level>
+            <authors>
+                <author>Mario Vargas Llosa</author>
+                <author>Isabel Allende</author>
+            </authors>
+        </book>
+        <book>
+            <title>Fundamentos de Bases de Datos</title>
+            <isbn>978-84-481-9876-1</isbn>
+            <price>52.75</price>
+            <year>2019</year>
+            <stock>18</stock>
+            <type>TextBook</type>
+            <level>Universitario</level>
+            <authors>
+                <author>Isaac Asimov</author>
+            </authors>
+        </book>
+        <book>
+            <title>Introducción a la Literatura Hispanoamericana</title>
+            <isbn>978-84-376-3782-2</isbn>
+            <price>38.5</price>
+            <year>2018</year>
+            <stock>13</stock>
+            <type>TextBook</type>
+            <level>Preparatoria</level>
+            <authors>
+                <author>García Lorca</author>
+                <author>Octavio Paz</author>
+            </authors>
+            <customImagePath>C:\Users\juliy\OneDrive\Escritorio\SGI LIB\book_images\book_9788437637822.jpg</customImagePath>
+        </book>
+        <book>
+            <title>dsdsa</title>
+            <isbn>12324</isbn>
+            <price>12.0</price>
+            <year>1999</year>
+            <stock>0</stock>
+            <type>Novel</type>
+            <genre>General</genre>
+            <authors>
+                <author>xxt</author>
+            </authors>
+        </book>
+        <book>
+            <title>don quijote de la mancha</title>
+            <isbn>9780744525021</isbn>
+            <price>15.2</price>
+            <year>1889</year>
+            <stock>1</stock>
+            <type>TextBook</type>
+            <level>Primaria</level>
+            <authors>
+                <author>Miguel de Cervantes Saavedra</author>
+            </authors>
+        </book>
+    </books>
+    <clients>
+        <client>
+            <name>Ana María Rodríguez</name>
+            <id>CLI001</id>
+            <purchased>
+                <book>
+                    <title>Cien años de soledad</title>
+                    <isbn>978-84-376-0494-7</isbn>
+                </book>
+                <book>
+                    <title>Cien años de soledad</title>
+                    <isbn>978-84-376-0494-7</isbn>
+                </book>
+                <book>
+                    <title>La ciudad y los perros</title>
+                    <isbn>978-84-663-0002-4</isbn>
+                </book>
+                <book>
+                    <title>Foundation</title>
+                    <isbn>978-0-553-29335-0</isbn>
+                </book>
+                <book>
+                    <title>Introducción a la Literatura Hispanoamericana</title>
+                    <isbn>978-84-376-3782-2</isbn>
+                </book>
+                <book>
+                    <title>Cien años de soledad</title>
+                    <isbn>978-84-376-0494-7</isbn>
+                </book>
+                <book>
+                    <title>dsdsa</title>
+                    <isbn>12324</isbn>
+                </book>
+            </purchased>
+        </client>
+        <client>
+            <name>Carlos Mendoza Silva</name>
+            <id>CLI002</id>
+            <purchased>
+                <book>
+                    <title>Foundation</title>
+                    <isbn>978-0-553-29335-0</isbn>
+                </book>
+                <book>
+                    <title>Programación Avanzada en Java</title>
+                    <isbn>978-84-441-8955-3</isbn>
+                </book>
+            </purchased>
+        </client>
+        <client>
+            <name>María Teresa López</name>
+            <id>CLI003</id>
+            <purchased/>
+        </client>
+        <client>
+            <name>Roberto Fernández</name>
+            <id>CLI004</id>
+            <purchased>
+                <book>
+                    <title>La casa de los espíritus</title>
+                    <isbn>978-84-204-8246-8</isbn>
+                </book>
+            </purchased>
+        </client>
+        <client>
+            <name>Jessica Morales Vega</name>
+            <id>CLI005</id>
+            <purchased/>
+        </client>
+        <client>
+            <name>Fernando Castro</name>
+            <id>CLI006</id>
+            <purchased>
+                <book>
+                    <title>Rayuela</title>
+                    <isbn>978-84-376-0050-5</isbn>
+                </book>
+                <book>
+                    <title>Ficciones</title>
+                    <isbn>978-84-376-0498-5</isbn>
+                </book>
+            </purchased>
+        </client>
+        <client>
+            <name>julian</name>
+            <id>CLI007</id>
+            <purchased/>
+        </client>
+    </clients>
+</library>
