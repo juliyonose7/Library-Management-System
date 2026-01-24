@@ -1,267 +1,289 @@
-# SGI LIB - Sistema de Gestión de Librería
+Here is the translation into technical English, maintaining the Markdown format and standard software documentation terminology.
 
-[![Java](https://img.shields.io/badge/Java-11+-orange.svg)](https://www.oracle.com/java/)
-[![Swing](https://img.shields.io/badge/Swing-UI-blue.svg)](https://docs.oracle.com/javase/tutorial/uiswing/)
-[![XML](https://img.shields.io/badge/XML-Database-green.svg)](https://www.w3.org/XML/)
+---
 
-Sistema completo de gestión de librería desarrollado en Java con una interfaz gráfica moderna, base de datos XML persistente y gestión avanzada de imágenes de libros.
+# SGI LIB - Library Management System
 
-## Características Principales
+A complete library management system developed in Java featuring a modern graphical user interface, a persistent XML database, and advanced book image management.
 
-### Gestión de Catálogo
-- **CRUD completo** de libros que permite Crear, Leer, Actualizar, Eliminar
-- **Búsqueda avanzada** por título y autor
-- **Control de inventario** con gestión de stock
-- **Categorización** de libros Novelas, Libros de texto
-- **Vista previa** de portadas con imágenes personalizadas
+## Key Features
 
-### Gestión de Autores
-- Registro y gestión de autores
-- Asociación múltiple de autores por libro
-- Búsqueda y filtrado de autores
+### Catalog Management
 
-### Gestión de Clientes
-- Registro de clientes con identificadores únicos
-- Historial de compras por cliente
-- Gestión de ventas con control de stock
+* **Full CRUD** operations for books (Create, Read, Update, Delete)
+* **Advanced search** by title and author
+* **Inventory control** with stock management
+* **Categorization** of books (Novels, Textbooks)
+* **Cover preview** with custom images
 
-### Sistema de Imágenes
-- **Portadas generadas automáticamente** con información del libro
-- **Imágenes personalizadas** con carga desde archivo
-- **Vista previa mejorada** con redimensionamiento inteligente
-- **Persistencia** de rutas de imágenes en base de datos XML
+### Author Management
 
-### Persistencia de Datos
-- **Base de datos XML** para almacenamiento persistente
-- **Auto-guardado** automático de cambios
-- **Carga automática** de datos al iniciar la aplicación
+* Author registration and management
+* Multiple author association per book
+* Author search and filtering
 
-## Tecnologías Utilizadas
+### Client Management
 
-- **Java 11+** - Lenguaje de programación principal
-- **Java Swing** - Interfaz gráfica de usuario
-- **FlatLaf** - Tema moderno y oscuro para la interfaz
-- **XML** - Base de datos persistente
-- **Java 2D Graphics** - Generación y manipulación de imágenes
--  **BookApiService** La clase BookApiService es un servicio de integración con Google Books API que permite enriquecer automáticamente la información de los libros en el sistema SGI LIB
+* Client registration with unique identifiers
+* Purchase history per client
+* Sales management with automatic stock adjustment
+
+### Image System
+
+* **Auto-generated covers** using book information
+* **Custom images** supported via file upload
+* **Enhanced preview** with intelligent resizing
+* **Persistence** of image paths in the XML database
+
+### Data Persistence
+
+* **XML Database** for persistent storage
+* **Auto-save** functionality for all changes
+* **Automatic data loading** upon application startup
+
+## Technologies Used
+
+* **Java 11+** - Core programming language
+* **Java Swing** - Graphical User Interface (GUI) toolkit
+* **FlatLaf** - Modern dark theme for the interface
+* **XML** - Persistent database storage
+* **Java 2D Graphics** - Image generation and manipulation
+* **BookApiService** - Integration service with the Google Books API to automatically enrich book information within the SGI LIB system
+
+## System Requirements
+
+* **Java Runtime Environment:** JRE 11 or higher
+* **Operating System:** Windows, macOS, Linux
+* **RAM:** Minimum 512MB recommended
+* **Disk Space:** 100MB for the application and data
+
+### Quick Installation
+
+You can simply execute the attached `.exe` file. However, if you wish to run it on Linux or compile it manually, follow this procedure:
+
+1. **Download the project:**
+```bash
+# Clone the repository or download SGI LIB.zip
+
+```
 
 
-## Requisitos del Sistema
+2. **Compile and Run:**
+```bash
+# On Windows (using the included script)
+compilar.bat
 
-- **Java Runtime Environment JRE11** o superior
-- **Sistema operativo:** Windows, macOS, Linux
-- **Memoria RAM:** Mínimo 512MB recomendado
-- **Espacio en disco:** 100MB para la aplicación y datos
+# On Linux/macOS
+javac -cp . LibreriaApp.java
+java LibreriaApp
 
-### Instalación Rápida
-puedes simplemente usar el .exe adjunto, pero si buscas ejecutarlo en linux este es el procedimiento:
+```
 
-1. **Descargar el proyecto:**
-   ```bash
-   # Clonar el repositorio o descargar SGI LIB.zip
-   ```
 
-2. **Compilar y ejecutar:**
-   ```bash
-   # En Windows (usando el script incluido)
-   compilar.bat
-   
-   # En Linux/macOS
-   javac -cp . LibreriaApp.java
-   java LibreriaApp
-   ```
+3. **Run from JAR:**
+```bash
+java -jar "SGI LIB.jar"
 
-3. **Ejecutar desde JAR:**
-   ```bash
-   java -jar "SGI LIB.jar"
-   ```
+```
 
-### Estructura del Proyecto
+
+
+### Project Structure
 
 ```
 SGI LIB/
-├── 📁 model/                 # Modelos de datos
-│   ├── Book.java            # Clase abstracta para libros
-│   ├── Novel.java           # Implementación para novelas
-│   ├── TextBook.java        # Implementación para libros de texto
-│   ├── Author.java          # Modelo de autor
-│   ├── Client.java          # Modelo de cliente
-│   ├── Library.java         # Clase principal de gestión
-│   ├── BookApiService.java  # Servicio de API de libros
-│   └── XMLDatabaseManager.java # Gestor de base de datos XML
-├── 📁 ui/                   # Interfaz de usuario
-│   ├── CatalogPanel.java    # Panel del catálogo
-│   ├── AuthorsPanel.java    # Panel de autores
-│   ├── ClientsPanel.java    # Panel de clientes
-│   ├── AddBookDialog.java   # Diálogo para agregar libros
-│   ├── EditBookDialog.java  # Diálogo para editar libros
-│   ├── BookTableModel.java  # Modelo de tabla de libros
-│   └── BookCoverGenerator.java # Generador de portadas
-├── 📁 images/               # Directorio de imágenes personalizadas
-├── 📁 book_images/          # Imágenes de libros predefinidas
-├── 📄 database.xml          # Base de datos XML
-├── 📄 LibreriaApp.java      # Clase principal de la aplicación
-├── 📄 FlatDarkLaf.java      # Tema de interfaz oscuro
-├── 📄 compilar.bat          # Script de compilación para Windows
-└── 📄 README.md             # Este archivo
+├── 📁 model/                # Data models
+│   ├── Book.java            # Abstract class for books
+│   ├── Novel.java           # Implementation for novels
+│   ├── TextBook.java        # Implementation for textbooks
+│   ├── Author.java          # Author model
+│   ├── Client.java          # Client model
+│   ├── Library.java         # Main management class
+│   ├── BookApiService.java  # Books API Service
+│   └── XMLDatabaseManager.java # XML Database Manager
+├── 📁 ui/                   # User Interface
+│   ├── CatalogPanel.java    # Catalog panel
+│   ├── AuthorsPanel.java    # Authors panel
+│   ├── ClientsPanel.java    # Clients panel
+│   ├── AddBookDialog.java   # Dialog for adding books
+│   ├── EditBookDialog.java  # Dialog for editing books
+│   ├── BookTableModel.java  # Book table model
+│   └── BookCoverGenerator.java # Cover generator
+├── 📁 images/               # Directory for custom images
+├── 📁 book_images/          # Predefined book images
+├── 📄 database.xml          # XML Database
+├── 📄 LibreriaApp.java      # Main application class
+├── 📄 FlatDarkLaf.java      # Dark interface theme
+├── 📄 compilar.bat          # Compilation script for Windows
+└── 📄 README.md             # This file
+
 ```
 
-## Funcionalidades Detalladas
+## Detailed Functionality
 
-### Gestión de Libros
+### Book Management
 
-#### Agregar un Nuevo Libro
-1. Navega a la pestaña **"Catálogo"**
-2. Haz clic en **"Agregar Libro"**
-3. Completa la información:
-   - **Título:** Nombre del libro
-   - **ISBN:** Código único del libro
-   - **Precio:** Precio de venta
-   - **Año:** Año de publicación
-   - **Stock:** Cantidad disponible
-   - **Tipo:** Novela o Libro de texto
-   - **Autores:** Selecciona de la lista o agrega nuevos
+#### Add a New Book
 
-#### Editar un Libro
-1. Selecciona un libro en la tabla
-2. Haz clic en **"Editar Libro"**
-3. Modifica los campos necesarios
-4. Guarda los cambios
+1. Navigate to the **"Catalog"** tab.
+2. Click on **"Add Book"**.
+3. Fill in the information:
+* **Title:** Name of the book
+* **ISBN:** Unique book code
+* **Price:** Selling price
+* **Year:** Publication year
+* **Stock:** Quantity available
+* **Type:** Novel or Textbook
+* **Authors:** Select from the list or add new ones
 
-#### Eliminar un Libro
-1. Selecciona un libro en la tabla
-2. Haz clic en **"Eliminar Libro"**
-3. Confirma la eliminación
 
-### Gestión de Imágenes
 
-#### Agregar Imagen Personalizada
-1. Selecciona un libro en el catálogo
-2. En la vista previa, haz clic en **"Agregar Imagen"**
-3. Selecciona una imagen desde tu computadora
-4. La imagen se mostrará inmediatamente
+#### Edit a Book
 
-#### Eliminar Imagen Personalizada
-1. Selecciona un libro con imagen personalizada
-2. Haz clic en **"Eliminar Imagen"**
-3. Confirma la eliminación
-4. El libro volverá a mostrar la portada generada
+1. Select a book from the table.
+2. Click on **"Edit Book"**.
+3. Modify the necessary fields.
+4. Save changes.
 
-**Formatos soportados:** JPG, PNG, GIF, BMP
+#### Delete a Book
 
-### Gestión de Ventas
+1. Select a book from the table.
+2. Click on **"Delete Book"**.
+3. Confirm deletion.
 
-#### Realizar una Venta
-1. Navega a la pestaña **"Catálogo"**
-2. Selecciona un libro con stock disponible
-3. Haz clic en **"Vender Libro"**
-4. Selecciona el cliente
-5. Confirma la venta
+### Image Management
 
-#### Ver Historial de Cliente
-1. Navega a la pestaña **"Clientes"**
-2. Selecciona un cliente
-3. Revisa su historial de compras
+#### Add Custom Image
 
-#### clase BookApiServiceC
-Con el boton de asignar imagenes automaticamente se obtienen datos de la API de google para asignar imagenes en todos los libros que esten listados
-simplemente agrege los libros y busque los metadatos de sus libros listados.
+1. Select a book in the catalog.
+2. In the preview pane, click **"Add Image"**.
+3. Select an image file from your computer.
+4. The image will be displayed immediately.
 
-## Configuración Avanzada
+#### Remove Custom Image
 
-### Personalización del Tema
-El sistema utiliza FlatLaf con tema oscuro por defecto. Para cambiar el tema, modifica `LibreriaApp.java`:
+1. Select a book with a custom image.
+2. Click on **"Remove Image"**.
+3. Confirm deletion.
+4. The book will revert to the auto-generated cover.
+
+**Supported formats:** JPG, PNG, GIF, BMP
+
+### Sales Management
+
+#### Process a Sale
+
+1. Navigate to the **"Catalog"** tab.
+2. Select a book with available stock.
+3. Click on **"Sell Book"**.
+4. Select the client.
+5. Confirm the sale.
+
+#### View Client History
+
+1. Navigate to the **"Clients"** tab.
+2. Select a client.
+3. Review their purchase history.
+
+#### BookApiService Class
+
+Using the automatic image assignment button, data is retrieved from the Google Books API to assign images to all listed books. Simply add the books and the system will fetch metadata for your listed inventory.
+
+## Advanced Configuration
+
+### Theme Customization
+
+The system uses FlatLaf with a dark theme by default. To change the theme, modify `LibreriaApp.java`:
 
 ```java
-// Cambiar a tema claro
+// Switch to light theme
 UIManager.setLookAndFeel(new FlatLightLaf());
 
-// Usar tema del sistema
+// Use system look and feel
 UIManager.setLookAndFeel(UIManager.getSystemLookAndFeel());
+
 ```
 
-### Configuración de Base de Datos
-La base de datos XML se encuentra en `database.xml`. Para cambiar la ubicación, modifica `XMLDatabaseManager.java`:
+### Database Configuration
+
+The XML database is located at `database.xml`. To change the location, modify `XMLDatabaseManager.java`:
 
 ```java
-private static final String DATABASE_FILE = "ruta/personalizada/database.xml";
+private static final String DATABASE_FILE = "custom/path/database.xml";
+
 ```
 
-## Base de Datos XML
+## XML Database
 
-El sistema utiliza XML para persistencia de datos. Estructura del archivo `database.xml`:
+The system uses XML for data persistence. Structure of the `database.xml` file:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <library>
     <books>
         <book>
-            <title>Nombre del Libro</title>
+            <title>Book Title</title>
             <isbn>978-1234567890</isbn>
             <price>29.99</price>
             <year>2023</year>
             <stock>10</stock>
             <type>novel</type>
-            <customImagePath>/ruta/a/imagen.jpg</customImagePath>
+            <customImagePath>/path/to/image.jpg</customImagePath>
             <authors>
-                <author>Nombre del Autor</author>
+                <author>Author Name</author>
             </authors>
         </book>
     </books>
     <authors>
         <author>
-            <name>Nombre del Autor</name>
-            <biography>Biografía del autor</biography>
+            <name>Author Name</name>
+            <biography>Author biography</biography>
         </author>
     </authors>
     <clients>
         <client>
             <id>CLI001</id>
-            <name>Nombre del Cliente</name>
-            <email>cliente@email.com</email>
+            <name>Client Name</name>
+            <email>client@email.com</email>
             <purchasedBooks>
                 <book>978-1234567890</book>
             </purchasedBooks>
         </client>
     </clients>
 </library>
+
 ```
 
-## Solución de Problemas
+## Troubleshooting
 
-### Error de Compilación
-- **Problema:** `javac: command not found`
-- **Solución:** Instalar Java JDK 11 o superior
+### Compilation Error
 
-### Error de Ejecución
-- **Problema:** `java.lang.OutOfMemoryError`
-- **Solución:** Aumentar memoria de Java: `java -Xmx1g LibreriaApp`
+* **Issue:** `javac: command not found`
+* **Solution:** Install Java JDK 11 or higher.
 
-### Imágenes No Se Cargan
-- **Problema:** Las imágenes personalizadas no aparecen
-- **Solución:** Verificar que las rutas de las imágenes sean correctas y los archivos existan
+### Runtime Error
 
-### Base de Datos Corrupta
-- **Problema:** Error al cargar la base de datos
-- **Solución:** Hacer backup de `database.xml` y restaurar desde una versión anterior
+* **Issue:** `java.lang.OutOfMemoryError`
+* **Solution:** Increase Java memory allocation: `java -Xmx1g LibreriaApp`
+
+### Images Not Loading
+
+* **Issue:** Custom images do not appear.
+* **Solution:** Verify that image paths are correct and that the files exist in the specified directory.
+
+### Corrupt Database
+
+* **Issue:** Error loading the database.
+* **Solution:** Create a backup of `database.xml` and restore from a previous version.
+
+## License
+
+This project is unlicensed as it is strictly educational and illustrative.
+
+## Author
+
+**Julian David Cardenas Guevara** - [https://www.linkedin.com/in/julicardenas/](https://www.linkedin.com/in/julicardenas/)
+
+Developed as an educational and illustrative project to demonstrate the capabilities of Java Swing and XML data management.
 
 
-## Licencia
-
-Este proyecto no tiene licencia debido a que es meramente educativo e ilustrativo
-
-## Autor
-
-**Julian David Cardenas Guevara** - https://www.linkedin.com/in/julicardenas/ 
-
-Desarrollado como proyecto educativo e ilustrativo para demostrar las capacidades de Java Swing y gestión de datos XML.
-
-## Soporte
-
-Para reportar bugs o solicitar nuevas funcionalidades:
-
-- Email: [juliyonose7@gmail.com]
-
----
-
-**¡Gracias por usar SGI LIB!**
