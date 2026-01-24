@@ -275,12 +275,8 @@ The system uses XML for data persistence. Structure of the `database.xml` file:
 ## License
 
 This project is unlicensed as it is strictly educational and illustrative.
-
-## Author
-
-**Julian David Cardenas Guevara** - [https://www.linkedin.com/in/julicardenas/](https://www.linkedin.com/in/julicardenas/)
-
 Developed as an educational and illustrative project to demonstrate the capabilities of Java Swing and XML data management.
+
 
 
 
