@@ -1,7 +1,3 @@
-Here is the translation into technical English, maintaining the Markdown format and standard software documentation terminology.
-
----
-
 # SGI LIB - Library Management System
 
 A complete library management system developed in Java featuring a modern graphical user interface, a persistent XML database, and advanced book image management.
@@ -285,5 +281,6 @@ This project is unlicensed as it is strictly educational and illustrative.
 **Julian David Cardenas Guevara** - [https://www.linkedin.com/in/julicardenas/](https://www.linkedin.com/in/julicardenas/)
 
 Developed as an educational and illustrative project to demonstrate the capabilities of Java Swing and XML data management.
+
 
 
