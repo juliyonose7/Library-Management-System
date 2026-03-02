@@ -55,10 +55,22 @@ This repository now includes an initial backend module to migrate the desktop so
 * **Spring Boot 3** bootstrap
 * **PostgreSQL** datasource configuration
 * **Flyway** baseline migration (`V1__baseline.sql`)
+* **JWT Authentication** with roles (`ADMIN`, `LIBRARIAN`, `CLIENT`)
+* **Access + Refresh token flow** with persisted refresh tokens
 * Initial domain entities and repositories:
     * `Author`
     * `Book`
     * `Client`
+
+### Auth endpoints
+
+* `POST /api/v1/auth/login`
+* `POST /api/v1/auth/refresh`
+
+Default bootstrap admin user (for local development):
+
+* Username: `admin`
+* Password: `Admin123!`
 
 ### Run backend locally
 

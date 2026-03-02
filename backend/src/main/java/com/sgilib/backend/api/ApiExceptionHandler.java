@@ -4,6 +4,7 @@ import com.sgilib.backend.exception.ConflictException;
 import com.sgilib.backend.exception.ResourceNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ProblemDetail;
+import org.springframework.security.core.AuthenticationException;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -43,6 +44,22 @@ public class ApiExceptionHandler {
             errors.put(error.getField(), error.getDefaultMessage());
         }
         detail.setProperty("errors", errors);
+        return detail;
+    }
+
+    @ExceptionHandler(AuthenticationException.class)
+    public ProblemDetail handleAuthentication(AuthenticationException exception) {
+        ProblemDetail detail = ProblemDetail.forStatusAndDetail(HttpStatus.UNAUTHORIZED, "Invalid credentials");
+        detail.setTitle("Unauthorized");
+        detail.setType(URI.create("https://api.sgilib.dev/errors/unauthorized"));
+        return detail;
+    }
+
+    @ExceptionHandler(Exception.class)
+    public ProblemDetail handleUnexpected(Exception exception) {
+        ProblemDetail detail = ProblemDetail.forStatusAndDetail(HttpStatus.INTERNAL_SERVER_ERROR, "Unexpected error");
+        detail.setTitle("Internal Server Error");
+        detail.setType(URI.create("https://api.sgilib.dev/errors/internal"));
         return detail;
     }
 }
