@@ -4,6 +4,17 @@
 [![Backend CD](https://github.com/juliyonose7/Library-Management-System/actions/workflows/backend-cd.yml/badge.svg)](https://github.com/juliyonose7/Library-Management-System/actions/workflows/backend-cd.yml)
 [![Release Please](https://github.com/juliyonose7/Library-Management-System/actions/workflows/release-please.yml/badge.svg)](https://github.com/juliyonose7/Library-Management-System/actions/workflows/release-please.yml)
 
+![Java](https://img.shields.io/badge/Java-17-007396?logo=openjdk&logoColor=white)
+![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.3.5-6DB33F?logo=springboot&logoColor=white)
+![Angular](https://img.shields.io/badge/Angular-19-DD0031?logo=angular&logoColor=white)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-16-4169E1?logo=postgresql&logoColor=white)
+![Docker](https://img.shields.io/badge/Docker-Compose-2496ED?logo=docker&logoColor=white)
+![Prometheus](https://img.shields.io/badge/Prometheus-Monitoring-E6522C?logo=prometheus&logoColor=white)
+![Grafana](https://img.shields.io/badge/Grafana-Dashboards-F46800?logo=grafana&logoColor=white)
+![Alertmanager](https://img.shields.io/badge/Alertmanager-Notifications-E6522C)
+![Flyway](https://img.shields.io/badge/Flyway-Migrations-CC0200?logo=flyway&logoColor=white)
+![JWT](https://img.shields.io/badge/JWT-Auth-000000?logo=jsonwebtokens&logoColor=white)
+
 A complete library management system developed in Java featuring a modern graphical user interface, a persistent XML database, and advanced book image management.
 
 ## Key Features
