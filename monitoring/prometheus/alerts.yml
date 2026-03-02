@@ -1,0 +1,38 @@
+groups:
+  - name: sgi-lib-backend-alerts
+    rules:
+      - alert: BackendDown
+        expr: up{job="sgi-lib-backend"} == 0
+        for: 1m
+        labels:
+          severity: critical
+        annotations:
+          summary: "Backend is down"
+          description: "Prometheus cannot scrape the backend metrics endpoint for 1 minute."
+
+      - alert: HighHttp5xxRate
+        expr: |
+          (
+            sum(rate(http_server_requests_seconds_count{job="sgi-lib-backend",status=~"5.."}[5m]))
+            /
+            sum(rate(http_server_requests_seconds_count{job="sgi-lib-backend"}[5m]))
+          ) > 0.05
+        for: 5m
+        labels:
+          severity: warning
+        annotations:
+          summary: "High 5xx error ratio"
+          description: "HTTP 5xx responses are above 5% during the last 5 minutes."
+
+      - alert: HighLatencyP95
+        expr: |
+          histogram_quantile(
+            0.95,
+            sum(rate(http_server_requests_seconds_bucket{job="sgi-lib-backend"}[5m])) by (le)
+          ) > 0.8
+        for: 10m
+        labels:
+          severity: warning
+        annotations:
+          summary: "High backend latency p95"
+          description: "The p95 HTTP latency is above 800ms for 10 minutes."

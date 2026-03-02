@@ -121,9 +121,16 @@ docker compose up --build
 Monitoring files:
 
 * `monitoring/prometheus/prometheus.yml`
+* `monitoring/prometheus/alerts.yml`
 * `monitoring/grafana/provisioning/datasources/datasource.yml`
 * `monitoring/grafana/provisioning/dashboards/dashboard.yml`
 * `monitoring/grafana/dashboards/backend-overview.json`
+
+Included baseline alerts:
+
+* `BackendDown` (critical)
+* `HighHttp5xxRate` (warning, > 5% for 5m)
+* `HighLatencyP95` (warning, > 800ms for 10m)
 
 ### Frontend Angular
 
