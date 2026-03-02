@@ -96,6 +96,27 @@ Services:
 * Backend: `http://localhost:8080`
 * PostgreSQL: `localhost:5432`
 
+### Frontend Angular
+
+Angular app is available in `frontend/`.
+
+Run locally:
+
+```bash
+cd frontend
+npm install
+npm start
+```
+
+Frontend URL:
+
+* `http://localhost:4200`
+
+Default login for local development:
+
+* Username: `admin`
+* Password: `Admin123!`
+
 ### CI
 
 GitHub Actions workflow available at:
