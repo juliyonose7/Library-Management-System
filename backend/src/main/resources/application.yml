@@ -1,0 +1,25 @@
+spring:
+  application:
+    name: sgi-lib-backend
+  datasource:
+    url: jdbc:postgresql://localhost:5432/sgi_lib
+    username: postgres
+    password: postgres
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    open-in-view: false
+    properties:
+      hibernate:
+        format_sql: true
+  flyway:
+    enabled: true
+
+server:
+  port: 8080
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics

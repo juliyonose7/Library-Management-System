@@ -46,6 +46,32 @@ A complete library management system developed in Java featuring a modern graphi
 * **Java 2D Graphics** - Image generation and manipulation
 * **BookApiService** - Integration service with the Google Books API to automatically enrich book information within the SGI LIB system
 
+## Migration Progress (Desktop -> Web)
+
+This repository now includes an initial backend module to migrate the desktop solution to a modern web architecture.
+
+### New module: `backend/`
+
+* **Spring Boot 3** bootstrap
+* **PostgreSQL** datasource configuration
+* **Flyway** baseline migration (`V1__baseline.sql`)
+* Initial domain entities and repositories:
+    * `Author`
+    * `Book`
+    * `Client`
+
+### Run backend locally
+
+1. Install **Java 17+** and **Maven 3.9+**
+2. Create a PostgreSQL database named `sgi_lib`
+3. From the `backend` folder, run:
+
+```bash
+mvn spring-boot:run
+```
+
+By default, the API starts on `http://localhost:8080`.
+
 ## System Requirements
 
 * **Java Runtime Environment:** JRE 11 or higher

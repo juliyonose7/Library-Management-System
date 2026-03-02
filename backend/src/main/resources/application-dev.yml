@@ -1,0 +1,5 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/sgi_lib_dev
+    username: postgres
+    password: postgres
