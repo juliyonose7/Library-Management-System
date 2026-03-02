@@ -13,7 +13,7 @@ on:
       - ".github/workflows/backend-ci.yml"
 
 jobs:
-  test:
+  verify:
     runs-on: ubuntu-latest
 
     steps:
@@ -27,6 +27,13 @@ jobs:
           java-version: "17"
           cache: maven
 
-      - name: Run tests
+      - name: Run verify (tests + quality gates)
         working-directory: backend
-        run: mvn -B test
+        run: mvn -B verify
+
+      - name: Upload JaCoCo report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: jacoco-report
+          path: backend/target/site/jacoco

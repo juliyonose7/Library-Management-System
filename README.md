@@ -125,6 +125,20 @@ GitHub Actions workflow available at:
 
 It runs backend tests automatically on push/PR affecting `backend/**`.
 
+### Quality gates
+
+Backend quality checks run on `mvn verify` and in CI:
+
+* **JaCoCo** coverage report + minimum line coverage gate
+* **Checkstyle** static rules (`backend/config/checkstyle/checkstyle.xml`)
+
+Run locally:
+
+```bash
+cd backend
+mvn verify
+```
+
 ### CD
 
 GitHub Actions workflow available at:
