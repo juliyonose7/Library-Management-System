@@ -72,6 +72,13 @@ Default bootstrap admin user (for local development):
 * Username: `admin`
 * Password: `Admin123!`
 
+### API documentation
+
+Once backend is running:
+
+* Swagger UI: `http://localhost:8080/swagger-ui/index.html`
+* OpenAPI JSON: `http://localhost:8080/v3/api-docs`
+
 ### Run backend locally
 
 1. Install **Java 17+** and **Maven 3.9+**
