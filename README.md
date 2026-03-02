@@ -1,5 +1,9 @@
 # SGI LIB - Library Management System
 
+[![Backend CI](https://github.com/juliyonose7/Library-Management-System/actions/workflows/backend-ci.yml/badge.svg)](https://github.com/juliyonose7/Library-Management-System/actions/workflows/backend-ci.yml)
+[![Backend CD](https://github.com/juliyonose7/Library-Management-System/actions/workflows/backend-cd.yml/badge.svg)](https://github.com/juliyonose7/Library-Management-System/actions/workflows/backend-cd.yml)
+[![Release Please](https://github.com/juliyonose7/Library-Management-System/actions/workflows/release-please.yml/badge.svg)](https://github.com/juliyonose7/Library-Management-System/actions/workflows/release-please.yml)
+
 A complete library management system developed in Java featuring a modern graphical user interface, a persistent XML database, and advanced book image management.
 
 ## Key Features
@@ -99,6 +103,31 @@ GitHub Actions workflow available at:
 * `.github/workflows/backend-ci.yml`
 
 It runs backend tests automatically on push/PR affecting `backend/**`.
+
+### CD
+
+GitHub Actions workflow available at:
+
+* `.github/workflows/backend-cd.yml`
+
+What it does on push to `main`:
+
+* Builds backend Docker image
+* Pushes image to GHCR (`ghcr.io/<owner>/<repo>/backend`)
+* Optionally triggers Render deploy hook if `RENDER_DEPLOY_HOOK_URL` secret is configured
+
+### Automated releases
+
+Release automation workflow available at:
+
+* `.github/workflows/release-please.yml`
+
+Configuration files:
+
+* `release-please-config.json`
+* `.release-please-manifest.json`
+
+This creates/updates release PRs and tags based on Conventional Commits.
 
 ### Run backend locally
 
