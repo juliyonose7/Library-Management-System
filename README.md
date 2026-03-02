@@ -102,6 +102,7 @@ The Docker Compose stack now includes monitoring services:
 
 * Prometheus: `http://localhost:9090`
 * Grafana: `http://localhost:3000`
+* Alertmanager: `http://localhost:9093`
 
 Default Grafana credentials:
 
@@ -122,15 +123,33 @@ Monitoring files:
 
 * `monitoring/prometheus/prometheus.yml`
 * `monitoring/prometheus/alerts.yml`
+* `monitoring/alertmanager/alertmanager.yml`
 * `monitoring/grafana/provisioning/datasources/datasource.yml`
 * `monitoring/grafana/provisioning/dashboards/dashboard.yml`
 * `monitoring/grafana/dashboards/backend-overview.json`
+* `monitoring/grafana/dashboards/api-business-overview.json`
+* `monitoring/grafana/dashboards/auth-overview.json`
 
 Included baseline alerts:
 
 * `BackendDown` (critical)
 * `HighHttp5xxRate` (warning, > 5% for 5m)
 * `HighLatencyP95` (warning, > 800ms for 10m)
+
+Alert notification routing:
+
+* Critical alerts -> Slack receiver (`slack-critical`)
+* Warning alerts -> Email receiver (`email-warning`)
+
+Before using in production/local demo, replace placeholders in:
+
+* `monitoring/alertmanager/alertmanager.yml`
+
+Required custom values:
+
+* Slack webhook URL (`api_url`)
+* SMTP host/credentials (`smarthost`, `auth_username`, `auth_password`)
+* Target email addresses (`to`, `from`)
 
 ### Frontend Angular
 
