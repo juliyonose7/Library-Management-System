@@ -96,6 +96,35 @@ Services:
 * Backend: `http://localhost:8080`
 * PostgreSQL: `localhost:5432`
 
+### Observability (Prometheus + Grafana)
+
+The Docker Compose stack now includes monitoring services:
+
+* Prometheus: `http://localhost:9090`
+* Grafana: `http://localhost:3000`
+
+Default Grafana credentials:
+
+* Username: `admin`
+* Password: `admin`
+
+Backend metrics endpoint:
+
+* `http://localhost:8080/actuator/prometheus`
+
+Start all services:
+
+```bash
+docker compose up --build
+```
+
+Monitoring files:
+
+* `monitoring/prometheus/prometheus.yml`
+* `monitoring/grafana/provisioning/datasources/datasource.yml`
+* `monitoring/grafana/provisioning/dashboards/dashboard.yml`
+* `monitoring/grafana/dashboards/backend-overview.json`
+
 ### Frontend Angular
 
 Angular app is available in `frontend/`.
