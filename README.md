@@ -79,6 +79,27 @@ Once backend is running:
 * Swagger UI: `http://localhost:8080/swagger-ui/index.html`
 * OpenAPI JSON: `http://localhost:8080/v3/api-docs`
 
+### Docker local environment
+
+Run backend + PostgreSQL with Docker Compose:
+
+```bash
+docker compose up --build
+```
+
+Services:
+
+* Backend: `http://localhost:8080`
+* PostgreSQL: `localhost:5432`
+
+### CI
+
+GitHub Actions workflow available at:
+
+* `.github/workflows/backend-ci.yml`
+
+It runs backend tests automatically on push/PR affecting `backend/**`.
+
 ### Run backend locally
 
 1. Install **Java 17+** and **Maven 3.9+**
