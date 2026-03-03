@@ -29,3 +29,7 @@ security:
     secret: very-secure-32-bytes-minimum-secret-key-2026
     access-token-expiration-ms: 900000
     refresh-token-expiration-ms: 1209600000
+
+integration:
+  google-books:
+    enabled: true

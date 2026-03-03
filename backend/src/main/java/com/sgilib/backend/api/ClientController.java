@@ -2,8 +2,10 @@ package com.sgilib.backend.api;
 
 import com.sgilib.backend.api.dto.ClientRequest;
 import com.sgilib.backend.api.dto.ClientResponse;
+import com.sgilib.backend.api.dto.SaleResponse;
 import com.sgilib.backend.api.mapper.ApiMapper;
 import com.sgilib.backend.service.ClientService;
+import com.sgilib.backend.service.SaleService;
 import jakarta.validation.Valid;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -23,9 +25,11 @@ import org.springframework.web.bind.annotation.RestController;
 public class ClientController {
 
     private final ClientService clientService;
+    private final SaleService saleService;
 
-    public ClientController(ClientService clientService) {
+    public ClientController(ClientService clientService, SaleService saleService) {
         this.clientService = clientService;
+        this.saleService = saleService;
     }
 
     @GetMapping
@@ -36,6 +40,11 @@ public class ClientController {
     @GetMapping("/{id}")
     public ClientResponse findById(@PathVariable Long id) {
         return ApiMapper.toClientResponse(clientService.findById(id));
+    }
+
+    @GetMapping("/{id}/sales")
+    public Page<SaleResponse> findSalesByClient(@PathVariable Long id, Pageable pageable) {
+        return saleService.findByClientId(id, pageable).map(ApiMapper::toSaleResponse);
     }
 
     @PostMapping

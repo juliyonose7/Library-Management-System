@@ -3,9 +3,11 @@ package com.sgilib.backend.api.mapper;
 import com.sgilib.backend.api.dto.AuthorResponse;
 import com.sgilib.backend.api.dto.BookResponse;
 import com.sgilib.backend.api.dto.ClientResponse;
+import com.sgilib.backend.api.dto.SaleResponse;
 import com.sgilib.backend.domain.Author;
 import com.sgilib.backend.domain.Book;
 import com.sgilib.backend.domain.Client;
+import com.sgilib.backend.domain.Sale;
 
 public final class ApiMapper {
 
@@ -38,6 +40,25 @@ public final class ApiMapper {
         response.setStock(book.getStock());
         response.setAuthorId(book.getAuthor().getId());
         response.setAuthorName(book.getAuthor().getName());
+        response.setSubtitle(book.getSubtitle());
+        response.setDescription(book.getDescription());
+        response.setPublisher(book.getPublisher());
+        response.setCategory(book.getCategory());
+        response.setCoverUrl(book.getCoverUrl());
+        response.setPageCount(book.getPageCount());
+        return response;
+    }
+
+    public static SaleResponse toSaleResponse(Sale sale) {
+        SaleResponse response = new SaleResponse();
+        response.setId(sale.getId());
+        response.setClientId(sale.getClient().getId());
+        response.setClientName(sale.getClient().getFirstName() + " " + sale.getClient().getLastName());
+        response.setBookId(sale.getBook().getId());
+        response.setBookTitle(sale.getBook().getTitle());
+        response.setBookIsbn(sale.getBook().getIsbn());
+        response.setQuantity(sale.getQuantity());
+        response.setSoldAt(sale.getSoldAt());
         return response;
     }
 }

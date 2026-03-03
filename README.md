@@ -72,6 +72,7 @@ This repository now includes an initial backend module to migrate the desktop so
 * **Flyway** baseline migration (`V1__baseline.sql`)
 * **JWT Authentication** with roles (`ADMIN`, `LIBRARIAN`, `CLIENT`)
 * **Access + Refresh token flow** with persisted refresh tokens
+* **Google Books metadata enrichment** by ISBN (cover + publisher + category + description)
 * Initial domain entities and repositories:
     * `Author`
     * `Book`
@@ -81,6 +82,22 @@ This repository now includes an initial backend module to migrate the desktop so
 
 * `POST /api/v1/auth/login`
 * `POST /api/v1/auth/refresh`
+
+### Sales endpoints
+
+* `POST /api/v1/sales` (register sale and decrease stock)
+* `GET /api/v1/sales` (global sales history)
+* `GET /api/v1/clients/{id}/sales` (purchase history by client)
+
+### Google Books enrichment endpoint
+
+* `GET /api/v1/books/enrich?isbn=<isbn>`
+
+This endpoint returns metadata and cover information (when available) from Google Books API.
+
+Toggle integration:
+
+* `integration.google-books.enabled=true|false` in `backend/src/main/resources/application.yml`
 
 Default bootstrap admin user (for local development):
 
@@ -165,6 +182,13 @@ Required custom values:
 ### Frontend Angular
 
 Angular app is available in `frontend/`.
+
+Current web modules:
+
+* Books (CRUD + metadata enrichment by ISBN)
+* Authors (CRUD)
+* Clients (CRUD)
+* Sales (register sale + purchase history)
 
 Run locally:
 
