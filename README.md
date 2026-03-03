@@ -17,6 +17,33 @@
 
 A hybrid library management system: Java Swing desktop + Spring Boot API + Angular frontend, with SQL persistence, desktop↔web synchronization, and XML export support.
 
+## UML Diagram and Screenshots
+
+<p align="center"><strong>UML Class Diagram</strong></p>
+
+<p align="center">
+    <img src="Images/UML%20SGI%20FINAL.png" alt="UML Class Diagram" width="950" />
+</p>
+
+<p align="center"><strong>Application Screenshots</strong></p>
+
+<table align="center">
+    <tr>
+        <td align="center"><strong>Catalog</strong></td>
+        <td align="center"><strong>Management</strong></td>
+    </tr>
+    <tr>
+        <td><img src="Images/Screenshot%202026-03-02%20182535.png" alt="Desktop Catalog View" width="430" /></td>
+        <td><img src="Images/Screenshot%202026-03-03%20012050.png" alt="Desktop Management View" width="430" /></td>
+    </tr>
+    <tr>
+        <td colspan="2" align="center"><strong>Detailed View</strong></td>
+    </tr>
+    <tr>
+        <td colspan="2" align="center"><img src="Images/Screenshot%202026-03-03%20021615.png" alt="Desktop Detailed View" width="760" /></td>
+    </tr>
+</table>
+
 ## New Version (v2.0.0)
 
 ### Highlights
