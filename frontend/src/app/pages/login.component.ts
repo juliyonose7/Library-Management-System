@@ -18,7 +18,7 @@ import { AuthService } from '../core/auth.service';
           <input formControlName="username" type="text" placeholder="admin" />
 
           <label>Contraseña</label>
-          <input formControlName="password" type="password" placeholder="Admin123!" />
+          <input formControlName="password" type="password" placeholder="Ingresa tu contraseña" />
 
           <button type="submit" [disabled]="form.invalid || loading">Entrar</button>
           <p *ngIf="error" class="error">Credenciales inválidas</p>

@@ -44,6 +44,24 @@ Stop-PortProcess 4200
 $mvnCmd = Resolve-MavenCommand
 $npmCmd = Resolve-NpmCommand
 
+$oldBootstrapUser = $env:APP_BOOTSTRAP_ADMIN_USERNAME
+$oldBootstrapEmail = $env:APP_BOOTSTRAP_ADMIN_EMAIL
+$oldBootstrapPass = $env:APP_BOOTSTRAP_ADMIN_PASSWORD
+$oldJwtSecret = $env:JWT_SECRET
+
+if ([string]::IsNullOrWhiteSpace($env:APP_BOOTSTRAP_ADMIN_USERNAME)) {
+    $env:APP_BOOTSTRAP_ADMIN_USERNAME = 'admin'
+}
+if ([string]::IsNullOrWhiteSpace($env:APP_BOOTSTRAP_ADMIN_EMAIL)) {
+    $env:APP_BOOTSTRAP_ADMIN_EMAIL = 'admin@sgilib.dev'
+}
+if ([string]::IsNullOrWhiteSpace($env:APP_BOOTSTRAP_ADMIN_PASSWORD)) {
+    $env:APP_BOOTSTRAP_ADMIN_PASSWORD = 'change-me-admin-password'
+}
+if ([string]::IsNullOrWhiteSpace($env:JWT_SECRET)) {
+    $env:JWT_SECRET = 'change-me-jwt-secret-min-32-characters'
+}
+
 Write-Host 'Iniciando backend (Spring Boot, profile=test)...' -ForegroundColor Cyan
 $backend = Start-Process -FilePath $mvnCmd `
     -WorkingDirectory (Join-Path $root 'backend') `
@@ -64,8 +82,8 @@ $oldApiPass = $env:SGILIB_API_PASSWORD
 
 $env:SGILIB_DESKTOP_API_SYNC = 'true'
 $env:SGILIB_API_BASE = 'http://localhost:8080/api/v1'
-$env:SGILIB_API_USER = 'admin'
-$env:SGILIB_API_PASSWORD = 'Admin123!'
+$env:SGILIB_API_USER = $env:APP_BOOTSTRAP_ADMIN_USERNAME
+$env:SGILIB_API_PASSWORD = $env:APP_BOOTSTRAP_ADMIN_PASSWORD
 
 $desktop = Start-Process -FilePath 'java.exe' `
     -WorkingDirectory $root `
@@ -76,6 +94,10 @@ $env:SGILIB_DESKTOP_API_SYNC = $oldSync
 $env:SGILIB_API_BASE = $oldApiBase
 $env:SGILIB_API_USER = $oldApiUser
 $env:SGILIB_API_PASSWORD = $oldApiPass
+$env:APP_BOOTSTRAP_ADMIN_USERNAME = $oldBootstrapUser
+$env:APP_BOOTSTRAP_ADMIN_EMAIL = $oldBootstrapEmail
+$env:APP_BOOTSTRAP_ADMIN_PASSWORD = $oldBootstrapPass
+$env:JWT_SECRET = $oldJwtSecret
 
 Write-Host ''
 Write-Host 'Servicios lanzados:' -ForegroundColor Green
