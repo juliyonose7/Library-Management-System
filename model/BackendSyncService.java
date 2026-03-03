@@ -40,7 +40,7 @@ public class BackendSyncService {
         boolean enabled = Boolean.parseBoolean(readConfig("SGILIB_DESKTOP_API_SYNC", "true"));
         String base = readConfig("SGILIB_API_BASE", "http://localhost:8080/api/v1");
         String user = readConfig("SGILIB_API_USER", "admin");
-        String pass = readConfig("SGILIB_API_PASSWORD", "Admin123!");
+        String pass = readConfig("SGILIB_API_PASSWORD", "");
         return new BackendSyncService(enabled, base, user, pass);
     }
 

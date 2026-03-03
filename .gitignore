@@ -13,3 +13,13 @@ target/
 # OS
 .DS_Store
 Thumbs.db
+
+# Local environment / secrets
+.env
+.env.local
+.env.*.local
+*.pem
+*.key
+*.p12
+*.jks
+*.keystore

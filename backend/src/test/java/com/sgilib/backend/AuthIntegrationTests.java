@@ -34,7 +34,7 @@ class AuthIntegrationTests {
                         .content("""
                                 {
                                   "username": "admin",
-                                  "password": "Admin123!"
+                                                                                                                                        "password": "test-admin-password"
                                 }
                                 """))
                 .andExpect(status().isOk())
@@ -53,7 +53,7 @@ class AuthIntegrationTests {
                         .content("""
                                 {
                                   "username": "admin",
-                                  "password": "Admin123!"
+                                                                                                                                        "password": "test-admin-password"
                                 }
                                 """))
                 .andExpect(status().isOk())
@@ -91,7 +91,7 @@ class AuthIntegrationTests {
                         .content("""
                                 {
                                   "username": "admin",
-                                  "password": "Admin123!"
+                                                                                                                                        "password": "test-admin-password"
                                 }
                                 """))
                 .andExpect(status().isOk())

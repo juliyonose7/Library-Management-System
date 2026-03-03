@@ -4,7 +4,7 @@ spring:
   datasource:
     url: jdbc:postgresql://${DB_HOST:localhost}:${DB_PORT:5432}/${DB_NAME:sgi_lib}
     username: ${DB_USER:postgres}
-    password: ${DB_PASSWORD:postgres}
+    password: ${DB_PASSWORD:change-me-db-password}
   jpa:
     hibernate:
       ddl-auto: validate
@@ -26,9 +26,16 @@ management:
 
 security:
   jwt:
-    secret: very-secure-32-bytes-minimum-secret-key-2026
+    secret: ${JWT_SECRET:change-me-jwt-secret-min-32-characters}
     access-token-expiration-ms: 900000
     refresh-token-expiration-ms: 1209600000
+
+app:
+  bootstrap:
+    admin:
+      username: ${APP_BOOTSTRAP_ADMIN_USERNAME:admin}
+      email: ${APP_BOOTSTRAP_ADMIN_EMAIL:admin@sgilib.dev}
+      password: ${APP_BOOTSTRAP_ADMIN_PASSWORD:}
 
 integration:
   google-books:

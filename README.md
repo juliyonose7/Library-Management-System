@@ -115,7 +115,7 @@ Toggle integration:
 Default bootstrap admin user (for local development):
 
 * Username: `admin`
-* Password: `Admin123!`
+* Password: provided via `APP_BOOTSTRAP_ADMIN_PASSWORD` (see `.env.example`)
 
 ### Desktop API sync configuration
 
@@ -124,7 +124,7 @@ Desktop sync can be configured with environment variables:
 * `SGILIB_DESKTOP_API_SYNC=true|false`
 * `SGILIB_API_BASE=http://localhost:8080/api/v1`
 * `SGILIB_API_USER=admin`
-* `SGILIB_API_PASSWORD=Admin123!`
+* `SGILIB_API_PASSWORD=<set-a-local-secret>`
 
 ### API documentation
 
@@ -156,8 +156,8 @@ The Docker Compose stack now includes monitoring services:
 
 Default Grafana credentials:
 
-* Username: `admin`
-* Password: `admin`
+* Username: from `GRAFANA_ADMIN_USER`
+* Password: from `GRAFANA_ADMIN_PASSWORD`
 
 Backend metrics endpoint:
 
@@ -252,7 +252,7 @@ Also available as double-click friendly wrappers:
 Default login for local development:
 
 * Username: `admin`
-* Password: `Admin123!`
+* Password: same value configured in `APP_BOOTSTRAP_ADMIN_PASSWORD`
 
 ### CI
 
