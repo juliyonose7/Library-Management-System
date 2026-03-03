@@ -15,7 +15,18 @@
 ![Flyway](https://img.shields.io/badge/Flyway-Migrations-CC0200?logo=flyway&logoColor=white)
 ![JWT](https://img.shields.io/badge/JWT-Auth-000000?logo=jsonwebtokens&logoColor=white)
 
-A complete library management system developed in Java featuring a modern graphical user interface, a persistent XML database, and advanced book image management.
+A hybrid library management system: Java Swing desktop + Spring Boot API + Angular frontend, with SQL persistence, desktop↔web synchronization, and XML export support.
+
+## New Version (v2.0.0)
+
+### Highlights
+
+* **Hybrid operation**: Desktop and web app working on the same backend/API.
+* **SQL-first desktop mode**: Desktop can load and persist through backend API (PostgreSQL).
+* **XML as explicit export**: XML is now export/fallback, not the primary persistence in sync mode.
+* **Metadata enrichment improved**: ISBN enrichment now uses Google Books + Open Library fallback.
+* **Modernized Angular UI**: app shell, dark theme, toasts, confirm dialogs, sorting, pagination, skeleton/empty states.
+* **Desktop cover compatibility**: desktop now supports local image paths and HTTP/HTTPS cover URLs.
 
 ## Key Features
 
@@ -48,18 +59,20 @@ A complete library management system developed in Java featuring a modern graphi
 
 ### Data Persistence
 
-* **XML Database** for persistent storage
-* **Auto-save** functionality for all changes
-* **Automatic data loading** upon application startup
+* **PostgreSQL (via backend API)** as primary persistence in synchronized mode.
+* **Desktop startup SQL-first** with fallback to local XML when backend is unavailable.
+* **XML export** available explicitly from desktop UI (`Exportar XML`).
 
 ## Technologies Used
 
-* **Java 11+** - Core programming language
+* **Java 17+** - Core programming language
 * **Java Swing** - Graphical User Interface (GUI) toolkit
 * **FlatLaf** - Modern dark theme for the interface
-* **XML** - Persistent database storage
+* **Spring Boot + PostgreSQL** - API and primary persistence
+* **Angular** - Web frontend
+* **XML** - Export/fallback persistence format
 * **Java 2D Graphics** - Image generation and manipulation
-* **BookApiService** - Integration service with the Google Books API to automatically enrich book information within the SGI LIB system
+* **BookApiService** - Integration service with ISBN metadata providers (Google Books and Open Library fallback)
 
 ## Migration Progress (Desktop -> Web)
 
@@ -93,7 +106,7 @@ This repository now includes an initial backend module to migrate the desktop so
 
 * `GET /api/v1/books/enrich?isbn=<isbn>`
 
-This endpoint returns metadata and cover information (when available) from Google Books API.
+This endpoint returns metadata and cover information (when available) using Google Books first and Open Library as fallback.
 
 Toggle integration:
 
@@ -103,6 +116,15 @@ Default bootstrap admin user (for local development):
 
 * Username: `admin`
 * Password: `Admin123!`
+
+### Desktop API sync configuration
+
+Desktop sync can be configured with environment variables:
+
+* `SGILIB_DESKTOP_API_SYNC=true|false`
+* `SGILIB_API_BASE=http://localhost:8080/api/v1`
+* `SGILIB_API_USER=admin`
+* `SGILIB_API_PASSWORD=Admin123!`
 
 ### API documentation
 
@@ -201,6 +223,31 @@ npm start
 Frontend URL:
 
 * `http://localhost:4200`
+
+### One-command local startup (Windows)
+
+From repository root, run:
+
+```powershell
+.\scripts\start-dev.ps1
+```
+
+This launches:
+
+* Backend (Spring Boot, profile `test`, port `8080`)
+* Frontend (Angular, port `4200`)
+* Desktop app (`LibreriaApp`) with API sync enabled
+
+To stop everything:
+
+```powershell
+.\scripts\stop-dev.ps1
+```
+
+Also available as double-click friendly wrappers:
+
+* `scripts/start-dev.bat`
+* `scripts/stop-dev.bat`
 
 Default login for local development:
 
@@ -429,9 +476,9 @@ private static final String DATABASE_FILE = "custom/path/database.xml";
 
 ```
 
-## XML Database
+## XML Database (Export/Fallback)
 
-The system uses XML for data persistence. Structure of the `database.xml` file:
+In this version, XML is used as export format and local fallback source when backend sync is unavailable. Structure of the `database.xml` file:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>

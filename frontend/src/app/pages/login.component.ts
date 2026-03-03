@@ -11,7 +11,8 @@ import { AuthService } from '../core/auth.service';
   template: `
     <main class="container">
       <section class="card">
-        <h1>SGI LIB Login</h1>
+        <h1>SGI LIB</h1>
+        <p class="subtitle">Gestión de librería moderna</p>
         <form [formGroup]="form" (ngSubmit)="submit()">
           <label>Usuario</label>
           <input formControlName="username" type="text" placeholder="admin" />
@@ -26,14 +27,18 @@ import { AuthService } from '../core/auth.service';
     </main>
   `,
   styles: [
-    '.container{min-height:100vh;display:grid;place-items:center;background:#f4f6f8;padding:16px}',
-    '.card{width:100%;max-width:380px;background:#fff;border:1px solid #ddd;border-radius:8px;padding:24px}',
-    'h1{margin:0 0 16px;font-size:22px}',
+    '.container{min-height:100vh;display:grid;place-items:center;padding:24px}',
+    '.card{width:100%;max-width:420px;background:rgba(255,255,255,.95);backdrop-filter:blur(8px);border:1px solid var(--border);border-radius:18px;padding:28px;box-shadow:0 18px 45px rgba(15,23,42,.12)}',
+    'h1{margin:0;font-size:32px;letter-spacing:-.5px}',
+    '.subtitle{margin:8px 0 20px;color:var(--text-soft)}',
     'form{display:flex;flex-direction:column;gap:10px}',
-    'label{font-size:13px;color:#333}',
-    'input{padding:10px;border:1px solid #ccc;border-radius:6px}',
-    'button{margin-top:6px;padding:10px;border:0;background:#1f2937;color:#fff;border-radius:6px;cursor:pointer}',
-    '.error{color:#b91c1c;font-size:13px;margin:4px 0 0}'
+    'label{font-size:13px;color:var(--text-soft);font-weight:600}',
+    'input{padding:11px;border:1px solid #cbd5e1;border-radius:10px;outline:none;transition:border-color .2s, box-shadow .2s}',
+    'input:focus{border-color:var(--primary);box-shadow:0 0 0 3px rgba(37,99,235,.15)}',
+    'button{margin-top:8px;padding:11px;border:0;background:linear-gradient(135deg,var(--primary),var(--primary-strong));color:#fff;border-radius:10px;font-weight:700;cursor:pointer;transition:transform .2s, opacity .2s}',
+    'button:hover{transform:translateY(-1px)}',
+    'button:disabled{opacity:.6;cursor:not-allowed;transform:none}',
+    '.error{color:#b91c1c;font-size:13px;margin:4px 0 0;font-weight:600}'
   ]
 })
 export class LoginComponent {

@@ -10,8 +10,9 @@ public class Library {
 private final List<Book> catalog = new ArrayList<>();
 private final List<Author> authors = new ArrayList<>();
 private final List<Client> clients = new ArrayList<>();
+private final BackendSyncService backendSyncService = BackendSyncService.createFromEnvironment();
 
-private boolean autoSave = true;
+private boolean autoSave = !backendSyncService.isEnabled();
 
 private Runnable onAuthorsChanged = () -> {};
 private Runnable onClientsChanged = () -> {};
@@ -30,18 +31,21 @@ public void setOnCatalogChanged(Runnable r) { this.onCatalogChanged = r; }
 
 public void addBook(Book b) { 
     catalog.add(b); 
+    backendSyncService.syncBookUpsert(b);
     onCatalogChanged.run(); 
     if (autoSave) XMLDatabaseManager.saveToXML(this);
 }
 
 public void addAuthor(Author a) { 
     authors.add(a); 
+    backendSyncService.syncAuthorUpsert(a);
     onAuthorsChanged.run(); 
     if (autoSave) XMLDatabaseManager.saveToXML(this);
 }
 
 public void addClient(Client c) { 
     clients.add(c); 
+    backendSyncService.syncClientUpsert(c);
     onClientsChanged.run(); 
     if (autoSave) XMLDatabaseManager.saveToXML(this);
 }
@@ -67,6 +71,7 @@ Client client = clients.stream().filter(c -> c.getId().equals(clientId)).findFir
 if (book == null || client == null) return false;
 if (!book.decrementStock()) return false;
 client.addPurchased(book);
+backendSyncService.syncSale(isbn, clientId);
 onCatalogChanged.run();
 onClientsChanged.run();
 if (autoSave) XMLDatabaseManager.saveToXML(this);
@@ -79,39 +84,55 @@ public void setAutoSave(boolean autoSave) {
 }
 
 public void saveToDatabase() {
+    if (!backendSyncService.isEnabled()) {
+        XMLDatabaseManager.saveToXML(this);
+    }
+}
+
+public void exportToXml() {
     XMLDatabaseManager.saveToXML(this);
+}
+
+public boolean isBackendSyncEnabled() {
+    return backendSyncService.isEnabled();
 }
 
 // metodos crud adicionales
 public void removeBook(Book book) {
     catalog.remove(book);
+    backendSyncService.syncBookDelete(book);
     onCatalogChanged.run();
     if (autoSave) XMLDatabaseManager.saveToXML(this);
 }
 
 public void removeAuthor(Author author) {
     authors.remove(author);
+    backendSyncService.syncAuthorDelete(author);
     onAuthorsChanged.run();
     if (autoSave) XMLDatabaseManager.saveToXML(this);
 }
 
 public void removeClient(Client client) {
     clients.remove(client);
+    backendSyncService.syncClientDelete(client);
     onClientsChanged.run();
     if (autoSave) XMLDatabaseManager.saveToXML(this);
 }
 
 public void updateBook(Book book) {
+    backendSyncService.syncBookUpsert(book);
     onCatalogChanged.run();
     if (autoSave) XMLDatabaseManager.saveToXML(this);
 }
 
 public void updateAuthor(Author author) {
+    backendSyncService.syncAuthorUpsert(author);
     onAuthorsChanged.run();
     if (autoSave) XMLDatabaseManager.saveToXML(this);
 }
 
 public void updateClient(Client client) {
+    backendSyncService.syncClientUpsert(client);
     onClientsChanged.run();
     if (autoSave) XMLDatabaseManager.saveToXML(this);
 }

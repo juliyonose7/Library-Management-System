@@ -80,6 +80,7 @@ public class CatalogPanel extends JPanel {
         JButton btnEdit = new JButton("Editar libro");
         JButton btnDelete = new JButton("Eliminar libro");
         JButton btnEnrichAll = new JButton("Buscar imágenes faltantes");
+        JButton btnExportXml = new JButton("Exportar XML");
         top.add(new JLabel("Buscar:"));
         top.add(searchField);
         top.add(btnSearch);
@@ -88,6 +89,7 @@ public class CatalogPanel extends JPanel {
         top.add(btnEdit);
         top.add(btnDelete);
         top.add(btnEnrichAll);
+        top.add(btnExportXml);
         add(top, BorderLayout.NORTH);
 
         // panel inferior con venta
@@ -116,6 +118,7 @@ public class CatalogPanel extends JPanel {
         btnEdit.addActionListener(e -> doEdit());
         btnDelete.addActionListener(e -> doDelete());
         btnEnrichAll.addActionListener(e -> doEnrichAll());
+        btnExportXml.addActionListener(e -> doExportXml());
         btnSell.addActionListener(e -> doSell());
 
         // Listener para selección en la tabla
@@ -432,7 +435,7 @@ public class CatalogPanel extends JPanel {
                 
                 // guardar cambios en la base de datos solo si hubo mejoras
                 if (enriched > 0) {
-                    model.XMLDatabaseManager.saveToXML(library);
+                    library.saveToDatabase();
                 }
                 
                 // mostrar resumen final
@@ -523,7 +526,7 @@ public class CatalogPanel extends JPanel {
             updateBookPreview(); // Actualizar la vista previa
             
             // Guardar cambios en la base de datos XML
-            model.XMLDatabaseManager.saveToXML(library);
+            library.saveToDatabase();
             
             JOptionPane.showMessageDialog(this, 
                 "Imagen agregada exitosamente para: " + book.getTitle(),
@@ -543,12 +546,20 @@ public class CatalogPanel extends JPanel {
             updateBookPreview(); // Actualizar la vista previa
             
             // Guardar cambios en la base de datos XML
-            model.XMLDatabaseManager.saveToXML(library);
+            library.saveToDatabase();
             
             JOptionPane.showMessageDialog(this,
                 "Imagen eliminada exitosamente",
                 "Imagen Eliminada",
                 JOptionPane.INFORMATION_MESSAGE);
         }
+    }
+
+    private void doExportXml() {
+        library.exportToXml();
+        JOptionPane.showMessageDialog(this,
+            "Datos exportados en formato XML (archivo database.xml).",
+            "Exportación XML",
+            JOptionPane.INFORMATION_MESSAGE);
     }
 }

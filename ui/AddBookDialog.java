@@ -294,7 +294,7 @@ public class AddBookDialog extends JDialog {
                         boolean enriched = model.BookApiService.enrichBook(book);
                         if (enriched) {
                             // guardar cambios solo si se agrego informacion nueva
-                            model.XMLDatabaseManager.saveToXML(library);
+                            library.saveToDatabase();
                         }
                     } catch (Exception ex) {
                         // ignorar errores de enriquecimiento ya que no son criticos

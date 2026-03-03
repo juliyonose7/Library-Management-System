@@ -1,6 +1,7 @@
 import ui.CatalogPanel;
 import ui.AuthorsPanel;
 import ui.ClientsPanel;
+import model.BackendSyncService;
 import model.Library;
 import model.XMLDatabaseManager;
 
@@ -19,8 +20,18 @@ System.err.println("no se pudo inicializar FlatLaf, usando look & feel por defec
 
 
 SwingUtilities.invokeLater(() -> {
-// cargar datos desde la base de datos xml
-Library library = XMLDatabaseManager.loadFromXML();
+BackendSyncService syncService = BackendSyncService.createFromEnvironment();
+Library library;
+
+if (syncService.isEnabled()) {
+library = syncService.loadLibrarySnapshot();
+if (library == null) {
+System.err.println("no se pudo cargar desde SQL/backend, usando respaldo XML local.");
+library = XMLDatabaseManager.loadFromXML();
+}
+} else {
+library = XMLDatabaseManager.loadFromXML();
+}
 
 
         JFrame frame = new JFrame("SGI LIB - Sistema de Gestión de Librería");

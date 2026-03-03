@@ -9,6 +9,7 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.net.URL;
 import javax.imageio.ImageIO;
 
 public class BookCoverGenerator {
@@ -47,13 +48,19 @@ public class BookCoverGenerator {
     
     private static ImageIcon loadCustomImage(String imagePath, int targetWidth, int targetHeight) {
         try {
-            File imageFile = new File(imagePath);
-            if (!imageFile.exists()) {
-                System.err.println("imagen no encontrada: " + imagePath);
-                return null;
+            BufferedImage originalImage;
+
+            if (imagePath != null && (imagePath.startsWith("http://") || imagePath.startsWith("https://"))) {
+                originalImage = ImageIO.read(new URL(imagePath));
+            } else {
+                File imageFile = new File(imagePath);
+                if (!imageFile.exists()) {
+                    System.err.println("imagen no encontrada: " + imagePath);
+                    return null;
+                }
+                originalImage = ImageIO.read(imageFile);
             }
-            
-            BufferedImage originalImage = ImageIO.read(imageFile);
+
             if (originalImage == null) {
                 System.err.println("no se pudo cargar la imagen: " + imagePath);
                 return null;

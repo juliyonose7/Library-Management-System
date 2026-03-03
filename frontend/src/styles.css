@@ -1,1 +1,112 @@
-/* You can add global styles to this file, and also import other style files */
+:root {
+	--bg: #f3f6fb;
+	--surface: #ffffff;
+	--surface-muted: #f8fafc;
+	--text: #0f172a;
+	--text-soft: #475569;
+	--primary: #2563eb;
+	--primary-strong: #1d4ed8;
+	--border: #e2e8f0;
+	--danger: #dc2626;
+	--danger-soft: #fee2e2;
+	--sidebar-bg: rgba(15, 23, 42, 0.92);
+	--sidebar-text: #e2e8f0;
+	--sidebar-link: #cbd5e1;
+	--topbar-text-soft: #475569;
+	--shadow-soft: 0 10px 30px rgba(15, 23, 42, 0.06);
+	--row-hover: #f8fbff;
+}
+
+body.theme-dark {
+	--bg: #0b1220;
+	--surface: #111a2c;
+	--surface-muted: #0f172a;
+	--text: #e2e8f0;
+	--text-soft: #94a3b8;
+	--primary: #3b82f6;
+	--primary-strong: #2563eb;
+	--border: #1e293b;
+	--danger: #ef4444;
+	--danger-soft: #3b1217;
+	--sidebar-bg: rgba(2, 6, 23, 0.94);
+	--sidebar-text: #e2e8f0;
+	--sidebar-link: #cbd5e1;
+	--topbar-text-soft: #94a3b8;
+	--shadow-soft: 0 12px 28px rgba(2, 6, 23, 0.45);
+	--row-hover: #172137;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+	font-family: Inter, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+	color: var(--text);
+	background: radial-gradient(circle at top right, #dbeafe 0%, var(--bg) 40%, #eef2ff 100%);
+	min-height: 100%;
+	transition: background 0.25s ease, color 0.25s ease;
+}
+
+body.theme-dark {
+	background: radial-gradient(circle at top right, #1e293b 0%, var(--bg) 40%, #020617 100%);
+}
+
+a {
+	color: inherit;
+}
+
+.empty-state {
+	background: var(--surface);
+	border: 1px dashed var(--border);
+	border-radius: 14px;
+	padding: 28px 22px;
+	text-align: center;
+	color: var(--text-soft);
+	box-shadow: var(--shadow-soft);
+}
+
+.empty-state h3 {
+	margin: 0 0 8px;
+	color: var(--text);
+}
+
+.empty-state p {
+	margin: 0;
+}
+
+.skeleton-card {
+	background: var(--surface);
+	border: 1px solid var(--border);
+	border-radius: 14px;
+	padding: 14px;
+	box-shadow: var(--shadow-soft);
+}
+
+.skeleton-line {
+	height: 12px;
+	border-radius: 999px;
+	background: linear-gradient(90deg, rgba(148, 163, 184, 0.2), rgba(148, 163, 184, 0.4), rgba(148, 163, 184, 0.2));
+	background-size: 220% 100%;
+	animation: skeleton-shimmer 1.2s ease-in-out infinite;
+	margin-bottom: 10px;
+}
+
+.skeleton-line:last-child {
+	margin-bottom: 0;
+}
+
+.w-25 { width: 25%; }
+.w-35 { width: 35%; }
+.w-45 { width: 45%; }
+.w-55 { width: 55%; }
+.w-70 { width: 70%; }
+.w-85 { width: 85%; }
+
+@keyframes skeleton-shimmer {
+	0% { background-position: 200% 0; }
+	100% { background-position: -20% 0; }
+}
