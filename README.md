@@ -15,7 +15,7 @@
 ![Flyway](https://img.shields.io/badge/Flyway-Migrations-CC0200?logo=flyway&logoColor=white)
 ![JWT](https://img.shields.io/badge/JWT-Auth-000000?logo=jsonwebtokens&logoColor=white)
 
-A hybrid library management system: Java Swing desktop + Spring Boot API + Angular frontend, with SQL persistence, desktop↔web synchronization, and XML export support.
+Hybrid library-management platform built as a polyglot architecture: Java Swing desktop client, Spring Boot 3 REST backend, and Angular 19 web frontend. It provides JWT-based authentication, PostgreSQL persistence with Flyway migrations, desktop↔API synchronization, ISBN metadata enrichment via Google Books/Open Library, and operational observability through Prometheus, Grafana, and Alertmanager, with XML export/fallback interoperability.
 
 ## New Version (v2.0.0)
 
